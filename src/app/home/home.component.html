@@ -1,61 +1,15 @@
-<div class="home-page">
+<body>
 
-  <div class="banner" >
-    <div class="container">
-      <h1 class="logo-font">conduit</h1>
-      <p>A place to share your <i>Angular 2</i> knowledge.</p>
-    </div>
-  </div>
 
-  <div class="container page">
-    <div class="row">
-
-      <div class="col-md-9">
-        <div class="feed-toggle">
-          <ul class="nav nav-pills outline-active">
-            <li class="nav-item">
-              <a class="nav-link"
-                 
-                 (click)="setListTo('feed')">
-                 Your Feed
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"
-                 
-                 (click)="setListTo('all')">
-                 Global Feed
-              </a>
-            </li>
-          </ul>
+  <div class="container_banner">
+    <ngx-carousel class="banner2" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
+      <ngx-item NgxCarouselItem *ngFor="let tile of carouselBannerItems; let i = index;">
+        <div class="bannerStyle" [style.background]="'url(' + tile + ')'">
+          <h1>{{i}}</h1>
         </div>
-
-        
-      </div>
-
-      <div class="col-md-3">
-        <div class="sidebar">
-          <p>Popular Tags</p>
-
-          <div class="tag-list">
-            <a href="#"
-               *ngFor="let tag of tags"
-               (click)="setListTo('all', {tag: tag})"
-               class="tag-default tag-pill">
-               {{ tag }}
-            </a>
-          </div>
-
-          <div [hidden]="tagsLoaded">
-            Loading tags...
-          </div>
-
-          <div [hidden]="!tagsLoaded || tags.length > 0">
-            No tags are here... yet.
-          </div>
-        </div>
-      </div>
-
-    </div>
+      </ngx-item>
+      <button NgxCarouselPrev class="leftRs">&lt;</button>
+      <button NgxCarouselNext class="rightRs">&gt;</button>
+    </ngx-carousel>
   </div>
-</div>
+</body>
