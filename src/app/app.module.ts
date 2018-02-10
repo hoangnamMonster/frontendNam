@@ -2,35 +2,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders,NgModule } from '@angular/core';
 import { AuthModule} from './auth/auth.module';
 import { HomeModule} from './home/home.module';
+import { TrackingModule} from './tracking/tracking.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   ApiService,
   FooterComponent,
   HeaderComponent,
   JwtService,
   SharedModule,
-  UserService
+  UserService,
+  TrackingService
 } from './shared';
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
     AuthModule,
     rootRouting,
     SharedModule,
-    HomeModule
+    HomeModule,
+    TrackingModule
   ],
   providers: [
     ApiService,
     JwtService,
-    UserService
+    UserService,
+    TrackingService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxCarousel } from 'ngx-carousel';
+import { NgxCarousel , NgxCarouselStore } from 'ngx-carousel';
 
 
 import { UserService } from '../shared';
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   public carouselBannerItems: Array<any> = [];
   public carouselBanner: NgxCarousel;
+  public carouselBannerStore : NgxCarouselStore;
   
 
   constructor(
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.carouselBanner = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 4,
-      speed: 500,
+      speed: 2000,
       interval: 5000,
       point: {
         visible: true,
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
             overflow: auto;
             position: absolute;
             width: 100%;
-            bottom: 20px;
+            bottom: 30px;
             left: 0;
             box-sizing: border-box;
           }
@@ -76,9 +77,10 @@ export class HomeComponent implements OnInit {
       },
       load: 2,
       touch: true,
-      loop: false,
-      easing: 'cubic-bezier(0, 0, 0.2, 1)',
-      animation:"lazy"
+      loop: true,
+      easing: 'ease',
+      animation:"lazy",
+      custom:"banner"
     };
 
 
@@ -86,8 +88,13 @@ export class HomeComponent implements OnInit {
 
   }
 
-  onmoveFn(data) {
-    // console.log(data);
+   /* This will be triggered after carousel viewed */
+   afterCarouselViewedFn(data) {
+    console.log(data);
+  }
+
+  onmoveFn(data: NgxCarouselStore) {
+     console.log(data);
   }
 
   public carouselBannerLoad() {
@@ -98,14 +105,6 @@ export class HomeComponent implements OnInit {
           this.imgags[Math.floor(Math.random() * this.imgags.length)]
         );
       }
-    }
-  }
-
-  setListTo(type: string = '', filters: Object = {}) {
-    // If feed is requested but user is not authenticated, redirect to login
-    if (type === 'feed' && !this.isAuthenticated) {
-      this.router.navigateByUrl('/login');
-      return;
     }
   }
 }

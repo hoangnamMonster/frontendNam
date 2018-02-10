@@ -1,0 +1,36 @@
+<form class="form-tracking" (ngSubmit)="onSubmit()" #trackingForm="ngForm">
+    <mat-card class="card-tracking mat-elevation-z8 wow fadeIn">
+      <img class="img-logo-tracking wow bounceInLeft" src="../../assets/images/safa.png" />
+      <div class="container-tracking wow bounceInLeft">
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Tracking Number" id="tracking" required [(ngModel)]="model.tracking" name="tracking" #tracking="ngModel">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Check</button>
+      </div>
+    </mat-card>
+</form>
+<div *ngIf="isSubmitting" class="example-container ">
+  <table class = "table mat-elevation-z8">
+    <tr>
+      <th class = "th_show">Create Date</th>
+      <th class = "th_show">Customer Name</th>
+      <th class = "th_show">Place Send To</th>
+      <th class = "th_show">Number Kg Received</th>
+      <th class = "th_show">Bill Safa</th>
+      <th class = "th_show">Tracking</th>
+      <th class = "th_show">Status</th>
+      <th class = "th_show">Received Date</th>
+    </tr>
+  
+    <tr>
+      <td>{{trackingModel.created | date:'dd-MM-yyyy'}}</td>
+      <td>{{trackingModel.customer}}</td>
+      <td>{{trackingModel.to}}</td>
+      <td>{{trackingModel.kg_receive}}</td>
+      <td>{{trackingModel.bill_safa}}</td>
+      <td>{{trackingModel.tracking}}</td>
+      <td>{{trackingModel.status}}</td>
+      <td>{{trackingModel.delivery_date}}</td>
+    </tr>
+  </table>
+</div>

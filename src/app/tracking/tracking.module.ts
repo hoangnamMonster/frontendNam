@@ -1,35 +1,30 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home.component';
-import { HomeAuthResolver } from './home-auth-resolver.service';
+import { NgxCarouselModule } from 'ngx-carousel';
+import { TrackingComponent } from './tracking.component';
+import { TrackingAuthResolver } from './tracking-auth-resolver.service';
 import { SharedModule } from '../shared';
 import { MaterialModule } from '../material/material.module';
 import { NgwWowModule } from 'ngx-wow';
 import { FormsModule }   from '@angular/forms';
 
-const homeRouting: ModuleWithProviders = RouterModule.forChild([
+const trackingRouting: ModuleWithProviders = RouterModule.forChild([
   {
-    path: '',
-    component: HomeComponent,
-    resolve: {
-      isAuthenticated: HomeAuthResolver
-    }
+    path: 'tracking',
+    component: TrackingComponent,
   }
 ]);
 
 @NgModule({
   imports: [
-    homeRouting,
+    trackingRouting,
     SharedModule,
     MaterialModule,
     FormsModule,
     NgwWowModule.forRoot()
   ],
   declarations: [
-    HomeComponent
-  ],
-  providers: [
-    HomeAuthResolver
+    TrackingComponent
   ]
 })
-export class HomeModule {}
+export class TrackingModule {}
