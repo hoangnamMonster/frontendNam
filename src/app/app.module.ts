@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   ApiService,
-  FooterComponent,
-  HeaderComponent,
   JwtService,
   SharedModule,
   UserService,

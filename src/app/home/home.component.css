@@ -7,7 +7,7 @@ header,
 }
 
 #intro {
-    background: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img%20%283%29.jpg")no-repeat center center fixed;
+    background: url("/../../assets/images/slider-1.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -24,7 +24,6 @@ header,
   animation-delay: 0.5s;
 }
 .form-tracking{
-  padding-top: 5%;
   width: 100%;
   text-align: center;
 }
@@ -32,7 +31,7 @@ header,
   width: 70%;
 }
 .img-logo-tracking{
-  animation-delay: 1.5s;
+  width: 66%;
 }
 
 .container-tracking{

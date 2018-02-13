@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { HomeAuthResolver } from './home-auth-resolver.service';
 import { SharedModule } from '../shared';
 import { MaterialModule } from '../material/material.module';
-import { NgwWowModule } from 'ngx-wow';
 import { FormsModule }   from '@angular/forms';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
@@ -22,8 +21,7 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     homeRouting,
     SharedModule,
     MaterialModule,
-    FormsModule,
-    NgwWowModule.forRoot()
+    FormsModule
   ],
   declarations: [
     HomeComponent
