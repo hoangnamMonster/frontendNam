@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -27,13 +27,14 @@ export class ApiService {
   }
 
   private formatErrors(error: any) {
-     return Observable.throw(error.json());
+     return Observable.throw(error);
   }
 
   get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
     return this.http.get(`${environment.api_url}${path}`, { headers: this.setHeaders(), search: params })
     .catch(this.formatErrors)
-    .map((res: Response) => res.json());
+    .map((res: Response) => res.json(),
+  );
   }
 
   put(path: string, body: Object = {}): Observable<any> {

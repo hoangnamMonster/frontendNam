@@ -1,0 +1,23 @@
+<nb-card>
+    <nb-card-header>
+        Tracking Table
+        <button (click)= "logout()">Logout</button>
+    </nb-card-header>
+
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="trackings" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)"> >
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-header>
+        User Table
+    </nb-card-header>
+
+    <!-- <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="trackings" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)"
+            (createConfirm)="onCreateConfirm($event)"> >
+        </ng2-smart-table>
+    </nb-card-body> -->
+</nb-card>

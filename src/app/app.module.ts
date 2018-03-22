@@ -3,6 +3,7 @@ import { ModuleWithProviders,NgModule } from '@angular/core';
 import { AuthModule} from './auth/auth.module';
 import { HomeModule} from './home/home.module';
 import { TrackingModule} from './tracking/tracking.module';
+import { AdminModule} from './admin/admin.module'
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     rootRouting,
     SharedModule,
     HomeModule,
-    TrackingModule
+    TrackingModule,
+    AdminModule
   ],
   providers: [
     ApiService,

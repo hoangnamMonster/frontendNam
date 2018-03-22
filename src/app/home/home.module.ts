@@ -5,6 +5,7 @@ import { HomeAuthResolver } from './home-auth-resolver.service';
 import { SharedModule } from '../shared';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule }   from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -21,7 +22,12 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     homeRouting,
     SharedModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyDn5QwWypql0zCZBW0EjHdnglrsepuWu3M'
+    })
   ],
   declarations: [
     HomeComponent

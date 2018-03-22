@@ -1,3 +1,3 @@
 export class TrackingRequest{
-    tracking : string;
+    bill : string;
 }

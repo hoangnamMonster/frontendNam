@@ -1,6 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgxCarouselModule } from 'ngx-carousel';
 import { TrackingComponent } from './tracking.component';
 import { TrackingAuthResolver } from './tracking-auth-resolver.service';
 import { SharedModule } from '../shared';
