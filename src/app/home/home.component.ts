@@ -6,6 +6,8 @@ import { TrackingService } from '../shared';
 import { TrackingRequest, Tracking } from '../shared/models';
 import { error } from 'util';
 import { MouseEvent } from '@agm/core';
+import { NgxCarousel } from 'ngx-carousel';
+
 // import * as $ from ‘query’;
 declare var jquery: any;   // not required
 declare var $: any;
@@ -25,27 +27,135 @@ import { empty } from 'rxjs/observable/empty';
 export class HomeComponent implements OnInit, AfterViewInit {
   private offSet: number;
   isSubmitting = false;
-  numberSlide = 1;
+  numberSlide = 0;
   link : string;
+  imgags: string[];
+  public carouselBannerItems: Array<any> = [];
+  public carouselBanner: NgxCarousel;
+  public carouselBannerItems2: Array<any> = [];
+  public carouselBanner2: NgxCarousel;
   constructor(
     private trackingService: TrackingService,
     private router: Router
   ) {
   }
   ngOnInit() {
+    this.carouselBannerItems = [
+      'assets/images/vietnam.jpg',
+      'assets/images/usa.jpg',
+      'assets/images/singapore.jpg',
+      'assets/images/japan.jpg',
+      'assets/images/germany.jpg'
+    ];
 
+    this.carouselBannerItems2 = [
+      'assets/images/chuyen-phat-nhanh-up.jpg',
+      'assets/images/cpn-qt4.jpg',
+      'assets/images/TNT_Erskine_Park_Depot_DSC07992_2048x1152.jpg',
+      'assets/images/vnf-FedEx-cong-ty-nhanh-nhat-the-gioi.jpg'
+    ];
+
+    this.carouselBanner = {
+      grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+      slide: 5,
+      speed: 500,
+      interval: 2500,
+      point: {
+        visible: true,
+        pointStyles: `
+          .ngxcarouselPoint {
+            list-style-type: none;
+            text-align: center;
+            padding: 12px;
+            margin: 0;
+            white-space: nowrap;
+            overflow: auto;
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            left: 0;
+            box-sizing: border-box;
+          }
+          .ngxcarouselPoint li {
+            display: inline-block;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 5px;
+            margin: 0 3px;
+            transition: .4s ease all;
+          }
+          .ngxcarouselPoint li.active {
+              background: white;
+              width: 10px;
+          }
+        `
+      },
+      load: 2,
+      custom: 'banner',
+      touch: true,
+      loop: true,
+      easing: 'cubic-bezier(0, 0, 0.2, 1)'
+    };
+
+    this.carouselBanner2 = {
+      grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+      slide: 4,
+      speed: 500,
+      interval: 1500,
+      point: {
+        visible: true,
+        pointStyles: `
+          .ngxcarouselPoint {
+            list-style-type: none;
+            text-align: center;
+            padding: 12px;
+            margin: 0;
+            white-space: nowrap;
+            overflow: auto;
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            left: 0;
+            box-sizing: border-box;
+          }
+          .ngxcarouselPoint li {
+            display: inline-block;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 5px;
+            margin: 0 3px;
+            transition: .4s ease all;
+          }
+          .ngxcarouselPoint li.active {
+              background: white;
+              width: 10px;
+          }
+        `
+      },
+      load: 2,
+      custom: 'banner',
+      touch: true,
+      loop: true,
+      easing: 'cubic-bezier(0, 0, 0.2, 1)'
+    };
+    //this.carouselBannerLoad()
   }
-
+  onMove(data){
+    console.log(data.currentSlide);
+    this.numberSlide = data.currentSlide;
+  }
+  
   ngAfterViewInit() {
-    var _this = this;
-    $('.carousel').carousel({
-      interval: 2000
-    })
-    $('.carousel').on('slide.bs.carousel', function () {
-      var ele = $('.carousel .carousel-indicators li.active');
-      _this.numberSlide = ele.data('slideTo');
-      //console.log(_this.numberSlide)
-    })
+    
+    // var _this = this;
+    // $('.carousel').carousel({
+    //   interval: 50000
+    // })
+    // $('.carousel').on('slide.bs.carousel', function () {
+    //   var ele = $('.carousel .carousel-indicators li.active');
+    //   _this.numberSlide = ele.data('slideTo');
+    //   //console.log(_this.numberSlide)
+    // })
   }
 
   checkExistTracking(){
@@ -60,6 +170,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
       return false;
     }
     return true;
+  }
+
+  calcDayOfWeek(){
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    return weekday[d.getDay()];
   }
 
   redirectToDHL(){

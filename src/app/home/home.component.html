@@ -17,8 +17,9 @@
         <div class="container">
 
             <!-- Navbar brand -->
-            <a class="navbar-brand" (click)="smoothScroll('intro')">
-                <span class="icon fa-truck"></span>SAFA</a>
+
+            <img class="icon_logo" src="../../assets/images/safa_burned.png" />
+
 
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -58,11 +59,11 @@
                     <li class="nav-item">
                         <a class="nav-link phone">
                             <i class="fa fa-phone"></i>
-                             0938125527
+                            0938125527
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link" href="https://www.facebook.com/ngdat.nguyen">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
@@ -83,7 +84,7 @@
         </div>
     </nav>
     <!--/.Navbar-->
-    
+
     <!--Mask-->
     <div id="intro" class="view hm-black-strong">
 
@@ -91,7 +92,7 @@
 
             <div class="no-wrap row d-flex justify-content-center">
 
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center" style="margin-top: 6%">
 
                     <!-- Heading -->
                     <h2 class="display-3 font-bold white-text mb-4">SAFA EXPRESS</h2>
@@ -105,7 +106,7 @@
                         <!-- <h4 class="col-md-6 white-text mb-4">Tracking</h4> -->
                         <input class="input-set" type="text" placeholder="Tracking Number" [(ngModel)]="model.bill" />
                         <button *ngIf="model.bill" matSuffix mat-icon-button aria-label="Clear" (click)="model.bill=''">
-                            <mat-icon style="color: rgb(255, 255, 255);">close</mat-icon>
+                            <mat-icon style="color: rgb(3, 3, 3);">close</mat-icon>
                         </button>
                         <!-- </div> -->
                         <!-- <div class="col-md-5"> -->
@@ -114,7 +115,7 @@
                         <!-- </mat-form-field> -->
                         <button mat-raised-button class="button-tracking" (click)="onSubmit()">
                             Search
-                            <mat-icon style="color: rgb(255, 255, 255);">send</mat-icon>
+                            <mat-icon style="color: rgb(5, 0, 0);">send</mat-icon>
                         </button>
                     </div>
                 </div>
@@ -145,7 +146,7 @@
 
                     <!-- Description -->
                     <p class="grey-text">
-                         Safety, quality, professionalism.
+                        Safety, quality, professionalism.
                     </p>
 
                 </div>
@@ -153,10 +154,20 @@
 
             </div>
             <!--Grid row-->
-            <div class="row justify-content-center">
+            <div class="row">
                 <!--Grid column-->
-                <div class="col-md-4 mb-5">
-                    <img class="img-service" src="../../assets/images/1.jpg" />
+                <div class="col-md-6 mb-5">
+                    <ngx-carousel class="banner" [inputs]="carouselBanner2">
+                        <ngx-item NgxCarouselItem *ngFor="let tile of carouselBannerItems2; let i = index;">
+                            <div class="bannerStyle" [style.background]="'url(' + tile + ')'">
+                    
+                            </div>
+                        </ngx-item>
+                        <button NgxCarouselPrev class="leftRs">&lt;</button>
+                        <button NgxCarouselNext class="rightRs">&gt;</button>
+                    </ngx-carousel>
+                </div>
+                <div class="col-md-6 mb-5">
                     <h4 class="my-4 font-weight-bold">Air Express Service</h4>
                     <div class="text-container">
                         <table>
@@ -174,22 +185,23 @@
                             </tr>
                         </table>
                     </div>
-                </div>
             </div>
-            <!--Grid row-->
-            <div class="row">
+    </div>
+    <!--Grid row-->
+    <div class="row">
 
-                <!--Grid column-->
-                <div class="col-md-4 mb-1">
-                    <img class="img-service" src="../../assets/images/2.jpg">
-                    <h4 class="my-4 font-weight-bold">Air Freight</h4>
-                    <div class="text-container">
-                        <table>
-                            <tr>
-                                <p class="grey-text">If you want quickly to move and do not pay courier cost, Skydart Airfreight would be the answer. We move export airfreight
-                                from Viet Nam to every destination in the world and we can get your cargo from any airport to any airport worldwide.</p>
-                            </tr>
-                            <!-- <tr>
+        <!--Grid column-->
+        <div class="col-md-4 mb-1">
+            <img class="img-service" src="../../assets/images/united-airlines-1.jpg">
+            <h4 class="my-4 font-weight-bold">Air Freight</h4>
+            <div class="text-container">
+                <table>
+                    <tr>
+                        <p class="grey-text">If you want quickly to move and do not pay courier cost, Skydart Airfreight would be the answer.
+                            We move export airfreight from Viet Nam to every destination in the world and we can get your
+                            cargo from any airport to any airport worldwide.</p>
+                    </tr>
+                    <!-- <tr>
                                 <p class="grey-text">Freight handled by most professional style as ever.</p>
                             </tr>
                             <tr>
@@ -204,407 +216,485 @@
                             <tr>
                                 <p class="grey-text">Be always your reliable partner.</p>
                             </tr> -->
-                        </table>
-                    </div>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-4 mb-1">
-                    <img class="img-service" src="../../assets/images/3.jpg">
-                    <h4 class="my-4 font-weight-bold">Customs Brokerage</h4>
-                    <div class="text-container">
-                        <table>
-                            <tr>
-                                <p class="grey-text">Be an important process of door to door service providers. Thank to the experiences that we gathered and the ability of changing
-                                situation, all your legal shipments would be immediately expedited even the complication goes anywhere</p>
-                            </tr>
-                            
-                        </table>
-                    </div>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-4 mb-1">
-                    <img class="img-service" src="../../assets/images/4.jpg">
-                    <h4 class="my-4 font-weight-bold">Sea Freight</h4>
-                    <div class="text-container">
-                        <table>
-                            <tr>
-                                <p class="grey-text">Ocean Import and Export service.</p>
-                            </tr>
-                            <tr>
-                                <p class="grey-text">Provide less than container load and full container load services .</p>
-                            </tr>
-                            <tr>
-                                <p class="grey-text">Strong network of agent.</p>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <!--Grid column-->
-
+                </table>
             </div>
-            <!--Grid row-->
+        </div>
+        <!--Grid column-->
 
-        </section>
-        <!--Section: Best Features-->
+        <!--Grid column-->
+        <div class="col-md-4 mb-1">
+            <img class="img-service" src="../../assets/images/Freight_Services_shutterstock_63760993.jpg">
+            <h4 class="my-4 font-weight-bold">Customs Brokerage</h4>
+            <div class="text-container">
+                <table>
+                    <tr>
+                        <p class="grey-text">Be an important process of door to door service providers. Thank to the experiences that we gathered
+                            and the ability of changing situation, all your legal shipments would be immediately expedited
+                            even the complication goes anywhere</p>
+                    </tr>
 
-        <hr class="my-5">
+                </table>
+            </div>
+        </div>
+        <!--Grid column-->
 
-        <!--Section: Examples-->
-        <section id="examples" class="text-center">
+        <!--Grid column-->
+        <div class="col-md-4 mb-1">
+            <img class="img-service" src="../../assets/images/4ca1290af5d28bc875cc706b0a71c41c.jpg">
+            <h4 class="my-4 font-weight-bold">Sea Freight</h4>
+            <div class="text-container">
+                <table>
+                    <tr>
+                        <p class="grey-text">Ocean Import and Export service.</p>
+                    </tr>
+                    <tr>
+                        <p class="grey-text">Provide less than container load and full container load services .</p>
+                    </tr>
+                    <tr>
+                        <p class="grey-text">Strong network of agent.</p>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--Grid column-->
 
-            <!-- Heading -->
-            <h2 class="mb-5 font-weight-bold">Tracking</h2>
-            <form class="form-tracking" (ngSubmit)="onSubmit()" #trackingForm="ngForm">
-                <mat-card class="card-tracking mat-elevation-z8">
-                    <img class="img-logo-tracking" src="../../assets/images/safa.png" />
-                    <div class="container-tracking">
-                        <mat-form-field class="example-full-width">
-                            <input matInput type="number" placeholder="Tracking Number" id="tracking" required [(ngModel)]="model.bill" name="tracking"
-                                #tracking="ngModel">
-                        </mat-form-field>
-                        <button class="btn btn-primary" color="primary" type="submit">Check
-                        </button>
-                    </div>
-                </mat-card>
-            </form>
-            <div *ngIf="isSubmitting" class="example-container">
-                <table *ngIf="checkExistDeleveryDate()" class="table mat-elevation-z8">
-                    <tr class = "tableTr">
-                        <th class="th_show"></th>
-                        <th class="th_show">{{trackingModel.delivery_date | date :'dd-MMM-yyyy'}}</th>
+    </div>
+    <!--Grid row-->
+
+    </section>
+    <!--Section: Best Features-->
+
+    <hr class="my-5">
+
+    <!--Section: Examples-->
+    <section id="examples" class="text-center">
+
+        <!-- Heading -->
+        <h2 class="mb-5 font-weight-bold">Tracking</h2>
+        <form class="form-tracking" (ngSubmit)="onSubmit()" #trackingForm="ngForm">
+            <mat-card class="card-tracking mat-elevation-z8">
+                <img class="img-logo-tracking" src="../../assets/images/safa.png" />
+                <div class="container-tracking">
+                    <input type="number" placeholder="Tracking Number" id="tracking" required [(ngModel)]="model.bill" name="tracking" #tracking="ngModel">
+                    <button class="btn btn-primary" color="primary" type="submit">Check
+                    </button>
+                </div>
+            </mat-card>
+        </form>
+        <div *ngIf="isSubmitting" class="example-container">
+            - Tóm Tắt Kết Quả .
+            <table class="table table-head mat-elevation-z8">
+                <thead class="blue-grey lighten-4">
+                    <tr class="tableTr">
+                        <th class="th_show">Vận Đơn : {{trackingModel.bill_safa}}
+                            <br>
+                            <label *ngIf="checkExistDeleveryDate()" class="finish-text">Hoàn Tất Thông Quan</label>
+                        </th>
+                        <th class="th_show">{{trackingModel.delivery_date | date :'EEEE-dd-MMM-yyyy'}}
+                            <br> Khu Vực Dịch Vụ Xuất Xứ :
+                            <br> - VietNam
+                            <br> Khu Vực Dịch Vụ Điểm Đến :
+                            <br> - {{trackingModel.to}} </th>
+                        <th class="th_show">Thời Gian Phát Hàng Dự Kiến :
+                            <br> {{trackingModel.time_exspect | date :'EEEE-dd-MMM-yyyy'}} </th>
+                    </tr>
+                </thead>
+            </table>
+            <table *ngIf="checkExistDeleveryDate()" class="table mat-elevation-z8">
+                <thead class="blue-grey lighten-4">
+                    <tr class="tableTr">
+                        <th class="th_show">#</th>
+                        <th class="th_show">{{trackingModel.delivery_date | date :'EEEE-dd-MMM-yyyy'}}</th>
                         <th class="th_show">Địa Điểm</th>
                         <th class="th_show">Thời Gian</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr *ngIf="checkExistTracking()">
-                        <td>5</td>
+                        <td scope="row">5</td>
                         <td>Đã Phát
-                            <br>
-                            <a class="linka" (click)="redirectToDHL()" target="_blank" >Check</a>
+                            <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
                         </td>
                         <td>{{trackingModel.to}}</td>
                         <td>23:23</td>
                     </tr>
-                </table>
-                <table class="table mat-elevation-z8">
+                </tbody>
+            </table>
+            <table class="table mat-elevation-z8">
+                <thead class="blue-grey lighten-4">
                     <tr>
-                        <th class="th_show"></th>
-                        <th class="th_show">{{trackingModel.created | date :'dd-MMM-yyyy'}}</th>
+                        <th class="th_show">#</th>
+                        <th class="th_show">{{trackingModel.created | date :'EEEE-dd-MMM-yyyy'}}</th>
                         <th class="th_show">Địa Điểm</th>
                         <th class="th_show">Thời Gian</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr *ngIf="checkExistTracking()">
-                        <td>4</td>
-                        <td>Đã chuyển đi DHL
-                            <br> <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
+                        <td scope="row">4</td>
+                        <td>{{trackingModel.cau4}}
+                            <br>
+                            <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
                         </td>
                         <td>VietNam-VietNam</td>
-                        <td>23:23</td>
+                        <td>{{trackingModel.time_cau4}}</td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td>Đang bắt đầu chuyển cho DHL</td>
+                        <td scope="row">3</td>
+                        <td>{{trackingModel.cau3}}</td>
                         <td>VietNam-VietNam</td>
-                        <td>23:23</td>
+                        <td>{{trackingModel.time_cau3}}</td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td>Đã xử lý tại trung tâm VIETNAM - VIETNAM</td>
+                        <td scope="row">2</td>
+                        <td>{{trackingModel.cau2}}</td>
                         <td>VietNam-VietNam</td>
-                        <td>23:23</td>
+                        <td>{{trackingModel.time_cau2}}</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>Đã nhận hàng</td>
+                        <td scope="row">1</td>
+                        <td>{{trackingModel.cau1}}</td>
                         <td>VietNam-VietNam</td>
-                        <td>23:23</td>
+                        <td>{{trackingModel.time_cau1}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+    <!--Section: Examples-->
+
+    <hr class="my-5">
+
+    <!--Section: Gallery-->
+    <section id="gallery">
+
+        <!-- Heading -->
+        <h2 class="mb-5 font-weight-bold text-center">Country Support</h2>
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6">
+
+                <!--Carousel Wrapper-->
+                <div style="height: 350px;">
+                    <ngx-carousel class="banner" [inputs]="carouselBanner" (onMove)="onMove($event)">
+                        <ngx-item NgxCarouselItem *ngFor="let tile of carouselBannerItems; let i = index;">
+                            <div class="bannerStyle" [style.background]="'url(' + tile + ')'">
+
+                            </div>
+                        </ngx-item>
+                        <button NgxCarouselPrev class="leftRs">&lt;</button>
+                        <button NgxCarouselNext class="rightRs">&gt;</button>
+                    </ngx-carousel>
+                </div>
+                <!--/.Carousel Wrapper-->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div *ngIf="numberSlide == 0" id="contentSlide" class="col-md-6">
+
+                <!--Excerpt-->
+                <a href="" class="teal-text">
+                    <h6 class="pb-1">
+                        <i class="fa fa-heart"></i>
+                        <strong> Lifestyle {{numberSlide}}</strong>
+                    </h6>
+                </a>
+                <h4 class="mb-3">
+                    <strong>VietNam</strong>
+                </h4>
+                <p></p>
+                <table>
+                    <tr>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/00ho-chi-minh.jpg);">
+                            <!-- <img style="width: 100%" src="../../assets/images/00ho-chi-minh.jpg" /> -->
+                        </td>
+                        <td style="width: 20%;">
+                            <img style="width: 50%" src="../../assets/images/c7cc7bcf0a40c73bb658690e45aef7ef.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <img style="width: 50%" src="../../assets/images/2011-11-17.11.57.35-haiphong1.jpg" />
+                        </td>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/../../assets/images/34192549076_5232b92601_o.jpg)">
+                            <!-- <img style="width: 100%" src="../../assets/images/34192549076_5232b92601_o.jpg" /> -->
+
+                        </td>
                     </tr>
                 </table>
+                <p></p>
             </div>
+            <!--Grid column-->
+            <div *ngIf="numberSlide == 1" id="contentSlide" class="col-md-6">
 
+                <!--Excerpt-->
+                <a href="" class="teal-text">
+                    <h6 class="pb-1">
+                        <i class="fa fa-heart"></i>
+                        <strong> Lifestyle {{numberSlide}}</strong>
+                    </h6>
+                </a>
+                <h4 class="mb-3">
+                    <strong>USA</strong>
+                </h4>
+                <p></p>
+                <table>
+                    <tr>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/maxresdefault.jpg);">
+                            <!-- <img style="width: 100%" src="../../assets/images/maxresdefault.jpg" /> -->
+                        </td>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/los_angeles___city_of_angels_wallpaper_by_eduard2009-db6v5x3.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/maxresdefault(1).jpg" />
+                        </td>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/../../assets/images/which_california_city_should_you_live_in_featured.jpg)">
+                            <!-- <img style="width: 100%" src="../../assets/images/which_california_city_should_you_live_in_featured.jpg" /> -->
 
-        </section>
-        <!--Section: Examples-->
-
-        <hr class="my-5">
-
-        <!--Section: Gallery-->
-        <section id="gallery">
-
-            <!-- Heading -->
-            <h2 class="mb-5 font-weight-bold text-center">Country Support</h2>
-
-            <!--Grid row-->
-            <div class="row">
-
-                <!--Grid column-->
-                <div class="col-md-6">
-
-                    <!--Carousel Wrapper-->
-                    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-                        <!--Indicators-->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-                            <li data-target="#carousel-example-1z" data-slide-to="3"></li>  
-                            <li data-target="#carousel-example-1z" data-slide-to="4"></li>
-                        </ol>
-                        <!--/.Indicators-->
-                        <!--Slides-->
-                        <div class="carousel-inner z-depth-1-half" role="listbox">
-                            <!--First slide-->
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="../../assets/images/vietnam.jpg" alt="First slide">
-                            </div>
-                            <!--/First slide-->
-                            <!--Second slide-->
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../../assets/images/usa.jpg" alt="Second slide">
-                            </div>
-                            <!--/Second slide-->
-                            <!--Third slide-->
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../../assets/images/singapore.jpg" alt="Third slide">
-                            </div>
-                            <!--/Third slide-->
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../../assets/images/japan.jpg" alt="Four slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../../assets/images/germany.jpg" alt="Five slide">
-                            </div>
-                        </div>
-                        <!--/.Slides-->
-                        <!--/.Slides-->
-                        <!--Controls-->
-                        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        <!--/.Controls-->
-                    </div>
-                    <!--/.Carousel Wrapper-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div *ngIf="numberSlide == 4"  id = "contentSlide" class="col-md-6" >
-                        
-                    <!--Excerpt-->
-                    <a href="" class="teal-text">
-                        <h6 class="pb-1">
-                            <i class="fa fa-heart"></i>
-                            <strong> Lifestyle {{numberSlide}}</strong>
-                        </h6>
-                    </a>
-                    <h4 class="mb-3">
-                        <strong>VietNam</strong>
-                    </h4>
-                    <p></p>
-
-                    <p></p>
-                </div>
-                <!--Grid column-->
-                <div *ngIf="numberSlide == 0" id="contentSlide" class="col-md-6">
-                
-                    <!--Excerpt-->
-                    <a href="" class="teal-text">
-                        <h6 class="pb-1">
-                            <i class="fa fa-heart"></i>
-                            <strong> Lifestyle {{numberSlide}}</strong>
-                        </h6>
-                    </a>
-                    <h4 class="mb-3">
-                        <strong>USA</strong>
-                    </h4>
-                    <p></p>
-                
-                    <p></p>
-                    
-                </div>
-                <div *ngIf="numberSlide == 1" id="contentSlide" class="col-md-6">
-                
-                    <!--Excerpt-->
-                    <a href="" class="teal-text">
-                        <h6 class="pb-1">
-                            <i class="fa fa-heart"></i>
-                            <strong> Lifestyle {{numberSlide}}</strong>
-                        </h6>
-                    </a>
-                    <h4 class="mb-3">
-                        <strong>Singapore</strong>
-                    </h4>
-                    <p></p>
-                
-                    <p></p>
-                    
-                </div>
-                <div *ngIf="numberSlide == 2" id="contentSlide" class="col-md-6">
-                
-                    <!--Excerpt-->
-                    <a href="" class="teal-text">
-                        <h6 class="pb-1">
-                            <i class="fa fa-heart"></i>
-                            <strong> Lifestyle {{numberSlide}}</strong>
-                        </h6>
-                    </a>
-                    <h4 class="mb-3">
-                        <strong>Japan</strong>
-                    </h4>
-                    <p></p>
-                
-                    <p></p>
-                    
-                </div>
-                <div *ngIf="numberSlide == 3" id="contentSlide" class="col-md-6">
-                
-                    <!--Excerpt-->
-                    <a href="" class="teal-text">
-                        <h6 class="pb-1">
-                            <i class="fa fa-heart"></i>
-                            <strong> Lifestyle {{numberSlide}}</strong>
-                        </h6>
-                    </a>
-                    <h4 class="mb-3">
-                        <strong>Germany</strong>
-                    </h4>
-                    <p></p>
-                
-                    <p></p>
-                    
-                </div>
-            </div>
-            
-            <!--Grid row-->
-
-        </section>
-        <!--Section: Gallery-->
-
-        <hr class="my-5">
-
-        <!--Section: Contact-->
-        <section id="contact">
-
-            <!-- Heading -->
-            <h2 class="mb-5 font-weight-bold text-center">Contact us</h2>
-
-            <!--Grid row-->
-            <div class="row">
-
-                <!--Grid column-->
-                <div class="col-lg-5 col-md-12">
-
-                    <!-- Form contact -->
-                    <form class="p-5">
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-user prefix grey-text"></i>
-                            <input type="text" id="form3" class="form-control">
-                            <label for="form3">Your name</label>
-                        </div>
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="text" id="form2" class="form-control">
-                            <label for="form2">Your email</label>
-                        </div>
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-tag prefix grey-text"></i>
-                            <input type="text" id="form32" class="form-control">
-                            <label for="form34">Subject</label>
-                        </div>
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-pencil prefix grey-text"></i>
-                            <textarea type="text" id="form8" class="md-textarea" style="height: 100px"></textarea>
-                            <label for="form8">Your message</label>
-                        </div>
-
-                        <div class="text-center">
-                            <button class="btn btn-primary">Send
-                                <i class="fa fa-paper-plane-o ml-1"></i>
-                            </button>
-                        </div>
-
-                    </form>
-                    <!-- Form contact -->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-7 col-md-12">
-
-                    <!--Grid row-->
-                    <div class="row text-center">
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-12 mb-3">
-
-                            <p>
-                                <i class="fa fa-map fa-1x mr-2 grey-text"></i>182/2 Khu Phố Long Thới,Phường Lái Thiếu,Thị Xã Thuận An,Bình Dương , VN </p>
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-6 mb-3">
-
-                            <p>
-                                <i class="fa fa-building fa-1x mr-2 grey-text"></i>Mon - Fri, 8:00-22:00</p>
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-6 mb-3">
-
-                            <p>
-                                <i class="fa fa-phone fa-1x mr-2 grey-text"></i>+ 84 938 125 527</p>
-
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Google map-->
-                    <div id="map-container" class="z-depth-1-half map-container" style="height: 400px">
-                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
-
-                            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
-                                [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-
-                                <agm-info-window>
-                                    <strong>InfoWindow content</strong>
-                                </agm-info-window>
-
-                            </agm-marker>
-
-                            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
-                            </agm-circle>
-
-                        </agm-map>
-                    </div>
-
-                </div>
-                <!--Grid column-->
+                        </td>
+                    </tr>
+                </table>
+                <p></p>
 
             </div>
-            <!--Grid row-->
+            <div *ngIf="numberSlide == 2" id="contentSlide" class="col-md-6">
 
-        </section>
-        <!--Section: Contact-->
+                <!--Excerpt-->
+                <a href="" class="teal-text">
+                    <h6 class="pb-1">
+                        <i class="fa fa-heart"></i>
+                        <strong> Lifestyle {{numberSlide}}</strong>
+                    </h6>
+                </a>
+                <h4 class="mb-3">
+                    <strong>Singapore</strong>
+                </h4>
+                <p></p>
+                <table>
+                    <tr>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/maxresdefault.jpg);">
+                            <!-- <img style="width: 100%" src="../../assets/images/maxresdefault.jpg" /> -->
+                        </td>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/los_angeles___city_of_angels_wallpaper_by_eduard2009-db6v5x3.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/maxresdefault(1).jpg" />
+                        </td>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/../../assets/images/which_california_city_should_you_live_in_featured.jpg)">
+                            <!-- <img style="width: 100%" src="../../assets/images/which_california_city_should_you_live_in_featured.jpg" /> -->
+
+                        </td>
+                    </tr>
+                </table>
+                <p></p>
+
+            </div>
+            <div *ngIf="numberSlide == 3" id="contentSlide" class="col-md-6">
+
+                <!--Excerpt-->
+                <a href="" class="teal-text">
+                    <h6 class="pb-1">
+                        <i class="fa fa-heart"></i>
+                        <strong> Lifestyle {{numberSlide}}</strong>
+                    </h6>
+                </a>
+                <h4 class="mb-3">
+                    <strong>Japan</strong>
+                </h4>
+                <p></p>
+                <table>
+                    <tr>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/maxresdefault.jpg);">
+                            <!-- <img style="width: 100%" src="../../assets/images/maxresdefault.jpg" /> -->
+                        </td>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/los_angeles___city_of_angels_wallpaper_by_eduard2009-db6v5x3.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/maxresdefault(1).jpg" />
+                        </td>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/../../assets/images/which_california_city_should_you_live_in_featured.jpg)">
+                            <!-- <img style="width: 100%" src="../../assets/images/which_california_city_should_you_live_in_featured.jpg" /> -->
+
+                        </td>
+                    </tr>
+                </table>
+                <p></p>
+
+            </div>
+            <div *ngIf="numberSlide == 4" id="contentSlide" class="col-md-6">
+
+                <!--Excerpt-->
+                <a href="" class="teal-text">
+                    <h6 class="pb-1">
+                        <i class="fa fa-heart"></i>
+                        <strong> Lifestyle {{numberSlide}}</strong>
+                    </h6>
+                </a>
+                <h4 class="mb-3">
+                    <strong>Germany</strong>
+                </h4>
+                <p></p>
+                <table>
+                    <tr>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/maxresdefault.jpg);">
+                            <!-- <img style="width: 100%" src="../../assets/images/maxresdefault.jpg" /> -->
+                        </td>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/los_angeles___city_of_angels_wallpaper_by_eduard2009-db6v5x3.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%">
+                            <img style="width: 50%" src="../../assets/images/maxresdefault(1).jpg" />
+                        </td>
+                        <td style="width: 100% ;height: 150px; content:url(../../assets/images/../../assets/images/which_california_city_should_you_live_in_featured.jpg)">
+                            <!-- <img style="width: 100%" src="../../assets/images/which_california_city_should_you_live_in_featured.jpg" /> -->
+
+                        </td>
+                    </tr>
+                </table>
+                <p></p>
+
+            </div>
+        </div>
+
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Gallery-->
+
+    <hr class="my-5">
+
+    <!--Section: Contact-->
+    <section id="contact">
+
+        <!-- Heading -->
+        <h2 class="mb-5 font-weight-bold text-center">Contact us</h2>
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-5 col-md-12">
+
+                <!-- Form contact -->
+                <form class="p-5">
+
+                    <div class="md-form form-sm">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="form3" class="form-control">
+                        <label for="form3">Your name</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input type="text" id="form2" class="form-control">
+                        <label for="form2">Your email</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fa fa-tag prefix grey-text"></i>
+                        <input type="text" id="form32" class="form-control">
+                        <label for="form34">Subject</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fa fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="form8" class="md-textarea" style="height: 100px"></textarea>
+                        <label for="form8">Your message</label>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary">Send
+                            <i class="fa fa-paper-plane-o ml-1"></i>
+                        </button>
+                    </div>
+
+                </form>
+                <!-- Form contact -->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-7 col-md-12">
+
+                <!--Grid row-->
+                <div class="row text-center">
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-3">
+
+                        <p>
+                            <i class="fa fa-map fa-1x mr-2 grey-text"></i>182/4, Long Thoi Str, Lai Thieu Ward, Thuan An Town, Binh Duong Province , VN </p>
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-3">
+
+                        <p>
+                            <i class="fa fa-building fa-1x mr-2 grey-text"></i>Mon - Fri, 8:00-22:00</p>
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-3">
+
+                        <p>
+                            <i class="fa fa-phone fa-1x mr-2 grey-text"></i>+ 84 938 125 527</p>
+
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Google map-->
+                <div id="map-container" class="z-depth-1-half map-container" style="height: 400px">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+
+                        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
+                            [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+                            <agm-info-window>
+                                <strong>InfoWindow content</strong>
+                            </agm-info-window>
+
+                        </agm-marker>
+
+                        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+                        </agm-circle>
+
+                    </agm-map>
+                </div>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Contact-->
 
     </div>
 </main>
@@ -719,9 +809,10 @@
                 </h6>
                 <hr class="red mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fa fa-home mr-3"></i> Số 150, Tổ 12, Ấp Hương phước, Xã Phước Tân, Tp Biên Hòa, Tỉnh Đồng Nai</p>
+                    <i class="fa fa-home mr-3"></i> No. 150, Group 12, Huong Phuoc Hamlet, Phuoc Tan Commune, Bien Hoa City, Dong Nai Province .
+                    <br> Second Address : 182/4, Long Thoi Str, Lai Thieu Ward, Thuan An Town, Binh Duong Province .</p>
                 <p>
-                    <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                    <i class="fa fa-envelope mr-3"></i>impex.dat2018@gmail.com</p>
                 <p>
                     <i class="fa fa-phone mr-3"></i> + 84 938 125 527 </p>
                 <p>

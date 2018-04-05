@@ -18,11 +18,11 @@ import { CustomEditorComponent } from './custom-editor.component';
 })
 
 export class AdminComponent implements OnInit {
-    trackings : Tracking[];
+    trackings: Tracking[];
     isAuthenticated: boolean;
-    component : CustomEditorComponent;
+    component: CustomEditorComponent;
     constructor(
-        private userService : UserService,
+        private userService: UserService,
         private trackingService: TrackingService,
         private router: Router,
         private datePipe: DatePipe
@@ -39,11 +39,11 @@ export class AdminComponent implements OnInit {
                 }
             }
         );
-        this.trackingService.getAllTracking().subscribe(data => 
+        this.trackingService.getAllTracking().subscribe(data =>
             this.trackings = data)
     }
 
-    logout(){
+    logout() {
         this.userService.purgeAuth();
     }
 
@@ -59,12 +59,16 @@ export class AdminComponent implements OnInit {
             confirmSave: true,
         },
         columns: {
-            created:{
-                title:'Create Date',
+            created: {
+                title: 'Create Date',
                 valuePrepareFunction: (date) => {
-                    var raw = new Date(date);
-                    var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
-                    return formatted;
+                    if (date == null || date == '') {
+                        return null
+                    } else {
+                        var raw = new Date(date);
+                        var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
+                        return formatted;
+                    }
                 },
                 type: 'html',
                 editor: {
@@ -75,9 +79,13 @@ export class AdminComponent implements OnInit {
             modified: {
                 title: 'Modified Date',
                 valuePrepareFunction: (date) => {
-                    var raw = new Date(date);
-                    var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
-                    return formatted;
+                    if (date == null || date == '') {
+                        return null
+                    } else {
+                        var raw = new Date(date);
+                        var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
+                        return formatted;
+                    }
                 },
                 type: 'html',
                 editor: {
@@ -103,10 +111,10 @@ export class AdminComponent implements OnInit {
             kg_send: {
                 title: 'KG Send'
             },
-            bill_safa:{
+            bill_safa: {
                 title: 'Bill Safa'
             },
-            bill_sky:{
+            bill_sky: {
                 title: 'Bill Sky'
             },
             tracking: {
@@ -118,19 +126,22 @@ export class AdminComponent implements OnInit {
             pick_up_by: {
                 title: 'Pickup By'
             },
-            delivery_by:{
+            delivery_by: {
                 title: 'Delivery By'
             },
             status: {
                 title: 'Status'
             },
-            delivery_date:{
-                title : 'Delivery Date',
+            delivery_date: {
+                title: 'Delivery Date',
                 valuePrepareFunction: (date) => {
-                    var raw = new Date(date);
-
-                    var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
-                    return formatted;
+                    if (date == null || date == '') {
+                        return null
+                    } else {
+                        var raw = new Date(date);
+                        var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
+                        return formatted;
+                    }
                 },
                 type: 'html',
                 editor: {
@@ -138,20 +149,61 @@ export class AdminComponent implements OnInit {
                     component: CustomEditorComponent,
                 }
             },
-            department_receive:{
-                title : 'Department Receive',
-            },  
-            price_buy : {
-                title : 'Price By'
+            department_receive: {
+                title: 'Department Receive',
             },
-            price_sale : {
-                title : 'Price Sale'
-            }, 
+            price_buy: {
+                title: 'Price By'
+            },
+            price_sale: {
+                title: 'Price Sale'
+            },
+            time_exspect: {
+                title: 'Thoi Gian Du Kien',
+                valuePrepareFunction: (date) => {
+                    if (date == null || date == '') {
+                        return null
+                    } else {
+                        var raw = new Date(date);
+                        var formatted = this.datePipe.transform(raw, 'dd/MM/yyyy');
+                        return formatted;
+                    }
+                },
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: CustomEditorComponent,
+                }
+            },
+            cau1: {
+                title: 'Dong 1'
+            },
+            time_cau1: {
+                title: "Thoi Gian Dong 1"
+            },
+            cau2: {
+                title: 'Dong 2'
+            },
+            time_cau2: {
+                title: "Thoi Gian Dong 2"
+            },
+            cau3: {
+                title: 'Dong 3'
+            },
+            time_cau3: {
+                title: "Thoi Gian Dong 3"
+            },
+            cau4: {
+                title: 'Dong 4'
+            },
+            time_cau4: {
+                title: "Thoi Gian Dong 4"
+            }
         },
     };
 
     source: LocalDataSource = new LocalDataSource();
-    
+
     onDeleteConfirm(event) {
         if (window.confirm('Are you sure you want to delete?')) {
             this.trackingService.deleteTracking(event.data._id).subscribe(data => data)
@@ -164,7 +216,7 @@ export class AdminComponent implements OnInit {
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
             this.trackingService.putUpdateTracking(event.newData).subscribe(data =>
-                 data)
+                data)
             event.confirm.resolve(event.newData);
         } else {
             event.confirm.reject();

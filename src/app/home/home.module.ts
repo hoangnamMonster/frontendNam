@@ -6,6 +6,8 @@ import { SharedModule } from '../shared';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule }   from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -27,7 +29,8 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
       apiKey: 'AIzaSyDn5QwWypql0zCZBW0EjHdnglrsepuWu3M'
-    })
+    }),
+    NgxCarouselModule
   ],
   declarations: [
     HomeComponent
