@@ -93,44 +93,14 @@ export class AdminComponent implements OnInit {
                     component: CustomEditorComponent,
                 }
             },
-            sale_agent: {
-                title: 'Sale Agent'
-            },
-            customer: {
-                title: 'Customer',
-            },
-            kdoc_pack: {
-                title: 'Kdoc Pack'
-            },
             to: {
                 title: 'To'
-            },
-            kg_receive: {
-                title: 'KG Receive'
-            },
-            kg_send: {
-                title: 'KG Send'
             },
             bill_safa: {
                 title: 'Bill Safa'
             },
-            bill_sky: {
-                title: 'Bill Sky'
-            },
             tracking: {
                 title: 'Tracking'
-            },
-            service: {
-                title: 'Service'
-            },
-            pick_up_by: {
-                title: 'Pickup By'
-            },
-            delivery_by: {
-                title: 'Delivery By'
-            },
-            status: {
-                title: 'Status'
             },
             delivery_date: {
                 title: 'Delivery Date',
@@ -148,15 +118,6 @@ export class AdminComponent implements OnInit {
                     type: 'custom',
                     component: CustomEditorComponent,
                 }
-            },
-            department_receive: {
-                title: 'Department Receive',
-            },
-            price_buy: {
-                title: 'Price By'
-            },
-            price_sale: {
-                title: 'Price Sale'
             },
             time_exspect: {
                 title: 'Thoi Gian Du Kien',
