@@ -300,26 +300,6 @@
                     </tr>
                 </thead>
             </table>
-            <table *ngIf="checkExistDeleveryDate()" class="table mat-elevation-z8">
-                <thead class="blue-grey lighten-4">
-                    <tr class="tableTr">
-                        <th class="th_show">#</th>
-                        <th class="th_show">{{trackingModel.delivery_date | date :'EEEE-dd-MMM-yyyy'}}</th>
-                        <th class="th_show">Địa Điểm</th>
-                        <th class="th_show">Thời Gian</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngIf="checkExistTracking()">
-                        <td scope="row">5</td>
-                        <td>Đã Phát
-                            <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
-                        </td>
-                        <td>{{trackingModel.to}}</td>
-                        <td>23:23</td>
-                    </tr>
-                </tbody>
-            </table>
             <table class="table mat-elevation-z8">
                 <thead class="blue-grey lighten-4">
                     <tr>
@@ -336,25 +316,25 @@
                             <br>
                             <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
                         </td>
-                        <td>VietNam-VietNam</td>
+                        <td>{{trackingModel.diadiem4}}</td>
                         <td>{{trackingModel.time_cau4}}</td>
                     </tr>
                     <tr>
                         <td scope="row">3</td>
                         <td>{{trackingModel.cau3}}</td>
-                        <td>VietNam-VietNam</td>
+                        <td>{{trackingModel.diadiem3}}</td>
                         <td>{{trackingModel.time_cau3}}</td>
                     </tr>
                     <tr>
                         <td scope="row">2</td>
                         <td>{{trackingModel.cau2}}</td>
-                        <td>VietNam-VietNam</td>
+                        <td>{{trackingModel.diadiem2}}</td>
                         <td>{{trackingModel.time_cau2}}</td>
                     </tr>
                     <tr>
                         <td scope="row">1</td>
                         <td>{{trackingModel.cau1}}</td>
-                        <td>VietNam-VietNam</td>
+                        <td>{{trackingModel.diadiem1}}</td>
                         <td>{{trackingModel.time_cau1}}</td>
                     </tr>
                 </tbody>

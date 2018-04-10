@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private offSet: number;
   isSubmitting = false;
   numberSlide = 0;
-  link : string;
+  link: string;
   imgags: string[];
   public carouselBannerItems: Array<any> = [];
   public carouselBanner: NgxCarousel;
@@ -140,13 +140,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     };
     //this.carouselBannerLoad()
   }
-  onMove(data){
+  onMove(data) {
     console.log(data.currentSlide);
     this.numberSlide = data.currentSlide;
   }
-  
+
   ngAfterViewInit() {
-    
+
     // var _this = this;
     // $('.carousel').carousel({
     //   interval: 50000
@@ -158,21 +158,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // })
   }
 
-  checkExistTracking(){
-    if (this.trackingModel.tracking =="" || this.trackingModel.tracking == undefined){
-        return false;
+  checkExistTracking() {
+    if (this.trackingModel.tracking == "" || this.trackingModel.tracking == undefined) {
+      return false;
     }
     return true;
   }
 
-  checkExistDeleveryDate(){
+  checkExistDeleveryDate() {
     if (this.trackingModel.delivery_date == null || this.trackingModel.delivery_date == undefined) {
       return false;
     }
     return true;
   }
 
-  calcDayOfWeek(){
+  calcDayOfWeek() {
     var d = new Date();
     var weekday = new Array(7);
     weekday[0] = "Sunday";
@@ -186,9 +186,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return weekday[d.getDay()];
   }
 
-  redirectToDHL(){
-    this.link = "http://www.dhl.com.vn/vi/express/tracking.html?AWB=" + this.trackingModel.tracking + "&brand=DHL";
-    window.open(this.link,'_blank');
+  redirectToDHL() {
+    switch (this.trackingModel.service) {
+      case "DHL": {
+        this.link = "http://www.dhl.com.vn/vi/express/tracking.html?AWB=" + this.trackingModel.tracking + "&brand=DHL";
+        break;
+      }
+      case "TNT": {
+        this.link = "https://www.tnt.com/express/en_vn/site/shipping-tools/tracking.html?cons=" + this.trackingModel.tracking + "&searchType=CON&source=home_widget&destination=ALL";
+        break;
+      }
+      case "FEDEX": {
+        this.link = "https://www.fedex.com/apps/fedextrack/index.html?tracknumbers=" + this.trackingModel.tracking;
+        break;
+      }
+      case "UPS": {
+        this.link = "https://wwwapps.ups.com/WebTracking/processInputRequest?tracknum=" + this.trackingModel.tracking;
+        break;
+      }
+    }
+    //this.link = "http://www.dhl.com.vn/vi/express/tracking.html?AWB=" + this.trackingModel.tracking + "&brand=DHL";
+    window.open(this.link, '_blank');
   }
 
   model = new TrackingRequest();
@@ -199,7 +217,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     var error;
-    
+
     if (this.model.bill == '' || this.model.bill == undefined) {
       window.alert("Must to enter the tracking number!!!")
     } else {
@@ -211,8 +229,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         },
         err => {
           if (err != undefined) {
-              window.alert(err.statusText);
-              this.isSubmitting = false;
+            window.alert(err.statusText);
+            this.isSubmitting = false;
           }
         }
       )

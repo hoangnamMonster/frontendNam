@@ -102,6 +102,19 @@ export class AdminComponent implements OnInit {
             tracking: {
                 title: 'Tracking'
             },
+            service: {
+                title: "Service",
+                type: 'html',
+                editor: {
+                    type: 'list',
+                    config: {
+                        list: [{ value: 'DHL', title: 'DHL' }, { value: 'TNT', title: 'TNT' }, {
+                            value: 'FEDEX',
+                            title: 'FEDEX',
+                        }, { value: 'UPS', title: 'UPS'}],
+                    },
+                },
+            },
             delivery_date: {
                 title: 'Delivery Date',
                 valuePrepareFunction: (date) => {
@@ -142,11 +155,17 @@ export class AdminComponent implements OnInit {
             time_cau1: {
                 title: "Thoi Gian Dong 1"
             },
+            diadiem1: {
+                title: "Dia Diem Dong 1"
+            },
             cau2: {
                 title: 'Dong 2'
             },
             time_cau2: {
                 title: "Thoi Gian Dong 2"
+            },
+            diadiem2: {
+                title: "Dia Diem Dong 2"
             },
             cau3: {
                 title: 'Dong 3'
@@ -154,12 +173,18 @@ export class AdminComponent implements OnInit {
             time_cau3: {
                 title: "Thoi Gian Dong 3"
             },
+            diadiem3: {
+                title: "Dia Diem Dong 3"
+            },
             cau4: {
                 title: 'Dong 4'
             },
             time_cau4: {
                 title: "Thoi Gian Dong 4"
-            }
+            },
+            diadiem4: {
+                title: "Dia Diem Dong 4"
+            },
         },
     };
 
