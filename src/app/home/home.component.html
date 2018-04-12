@@ -310,11 +310,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngIf="checkExistTracking()">
+                    <tr>
                         <td scope="row">4</td>
                         <td>{{trackingModel.cau4}}
                             <br>
-                            <a class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
+                            <a *ngIf="checkExistTracking()" class="linka" (click)="redirectToDHL()" target="_blank">Check</a>
                         </td>
                         <td>{{trackingModel.diadiem4}}</td>
                         <td>{{trackingModel.time_cau4}}</td>
